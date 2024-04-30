@@ -5,11 +5,7 @@ import numpy as np
 import gradio as gr
 import whisper
 
-model = whisper.load_model("large")
-
-# def transcribe_audio():
-#     result = model.transcribe("./flagged/audio/")
-#     return result["text"]
+model = whisper.load_model("medium")
 
 def transcribe_audio(audio):
     audio = whisper.load_audio(audio)
@@ -31,7 +27,7 @@ def transcribe_audio(audio):
     return result.text
 
 input_audio = gr.Audio(
-    sources=["microphone"],
+    sources=["microphone", "upload"],
     waveform_options=gr.WaveformOptions(
         waveform_color="#01C6FF",
         waveform_progress_color="#0066B4",
